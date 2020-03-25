@@ -1,0 +1,36 @@
+<div  class="card-panel blue lighten-5">
+
+  <table>
+    <tr>
+      <td>  <strong>Title:</strong>
+        <div class="card-panel purple lighten-4">
+          <%= event.title %>
+        </div>
+      </td>
+      <td>
+        <strong>Hosted by:</strong>
+        <div class="card-panel purple accent-1">
+          <%= event.host.name %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>  <strong>Location:</strong>
+        <div class="card-panel blue lighten-4">
+          <%= event.location %>
+        </div>
+      </td>
+      <td>
+        <strong>Meeting date & time:</strong>
+        <div class="card-panel blue lighten-3">
+          <%= event.meeting_time %>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <strong>Description:</strong>
+  <div class="card-panel blue lighten-2">
+    <%= event.description %>
+  </div>
+</div>

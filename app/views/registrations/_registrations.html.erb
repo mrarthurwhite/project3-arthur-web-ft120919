@@ -1,22 +1,47 @@
 
-<table class="striped">
-  <thead>
-  <tr>
-    <th>Event</th>
-    <th>User</th>
-    <th>Rsvp</th>
-    <th>Comment</th>
-  </tr>
-  </thead>
 
-  <tbody>
+<div  class="card-panel blue lighten-5">
+
+<table>
   <% registrations.each do |r| %>
-    <tr>
-      <td><%= r.event.title %></td>
-      <td><%= r.user.email %></td>
-      <td><%= r.rsvp %></td>
-      <td><%= r.comment %></td>
-    </tr>
+
+  <tr>
+
+    <td>
+      <div class="card-panel purple lighten-4">
+        <%= r.event.title %>
+      </div>
+    </td>
+
+    <td>
+      <table>
+        <tr>
+          <td><strong>Name (email)</strong></td>
+          <td>
+            <div class="card-panel purple accent-1">
+              <%= r.user.name %> (<%= r.user.email %>)
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>RSVP</strong></td>
+          <td>
+            <div class="card-panel purple accent-1">
+              <%= r.rsvp %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Comment</strong></td>
+          <td>
+            <div class="card-panel blue lighten-4">
+              <%= r.comment %>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
   <% end %>
-  </tbody>
 </table>
+</div>

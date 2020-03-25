@@ -1,32 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<%= render 'event', event: @event %>
+
+
 <div  class="card-panel blue lighten-5">
-  <strong>Title:</strong>
-  <p class="card-panel purple lighten-4">
-   <%= @event.title %>
-</p>
-  <strong>Hosted by:</strong>
-<p class="card-panel purple accent-1">
-  <%= @event.host.name %>
-</p>
-  <strong>Location:</strong>
-  <p class="card-panel blue lighten-4">
-  <%= @event.location %>
-  </p>
+  <strong>RSVPs:</strong>
 
-  <strong>Meeting date & time:</strong>
-<p class="card-panel blue lighten-3">
- <%= @event.meeting_time %>
-</p>
-<strong>Description:</strong>
-<p class="card-panel blue lighten-2">
-  <%= @event.description %>
-</p>
-
-  <%= render 'registrations/registrations', registrations: @event.registrations %>
-
-
+<%= render 'registrations/registrations', registrations: @event.registrations %>
 </div>
-
-<%= link_to 'Edit', edit_event_path(@event) , class:'waves-effect  blue lighten-3 btn-small' %> |
+<%= link_to 'Edit Event', edit_event_path(@event) , class:'waves-effect  blue lighten-3 btn-small' %> |
 <%= link_to 'Back', events_path,  class:'waves-effect  blue lighten-3 btn-small' %>
