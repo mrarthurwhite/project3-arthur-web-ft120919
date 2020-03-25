@@ -20,13 +20,15 @@ end
 
   # GET /registrations/new
   def new
-    @registration = Registration.new
     #binding.pry
+    @registration = Registration.new
+
   end
 
 
   # GET /registrations/1/edit
   def edit
+    @event = @registration.event
   end
 
   # POST /registrations
@@ -46,7 +48,7 @@ end
   # PATCH/PUT /registrations/1.json
   def update
       if @registration.update(registration_params)
-       render :show
+        redirect_to events_url
       else
         render :edit
       end
