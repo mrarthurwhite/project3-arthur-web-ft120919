@@ -1,6 +1,8 @@
 class RegistrationsController < ApplicationController
   before_action :set_registration, only: [:show, :edit, :update, :destroy]
   before_action :set_event, only: [:new]
+  before_action :authorize, only: [:index, :delete]
+
 
 
   # GET /registrations
@@ -25,8 +27,8 @@ end
 
   end
 
-
   # GET /registrations/1/edit
+
   def edit
     @event = @registration.event
   end
