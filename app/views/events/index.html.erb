@@ -40,13 +40,7 @@
 
         <td><%= event.meeting_time %></td>
         <td>
-          <% if event.rsvped?(current_user) %>
-             <%= link_to 'Edit RSVP', event %>
-          <% elsif !event.isHost(current_user) %>
-            <%= link_to 'RSVP', new_registration_path(event) %>
-          <% else %>
-            <%= link_to 'Details', event %>
-          <% end %>
+
         </td>
         <td><%= link_to 'Edit', edit_event_path(event)  , class:'waves-effect  blue lighten-3 btn-small' if event.isHost?(current_user)  %></td>
         <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } , class:'waves-effect  blue lighten-3 btn-small'   if event.isHost?(current_user)   %></td>
