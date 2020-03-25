@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+<br>
+  <strong>Hosted by:</strong>
+  <%= @event.host.name %>
+  <br>
+  <strong>Location:</strong>
+  <%= @event.location %>
+  <br>
+  <strong>Meeting datetime:</strong>
+  <%= @event.meeting_time %>
+  <br>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<%= form_tag eventSignUp_path, method: "post" do %>
+  <div class="field">
+    <%= label_tag "rsvp", "RSVP" %>
+    <%= text_field_tag "rsvp" %>
+  </div>
+  <div class="field">
+    <%= label_tag "comment", "Comment" %>
+    <%= text_field_tag "comment" %>
+  </div>
+  <%= hidden_field_tag :event_id , @event.id %>
+
+  <%= submit_tag "RSVP" %>
+<% end %>
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

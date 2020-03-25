@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+Welcome,   <i><%= @user.name %></i>
+<br>
+  <strong>Email:</strong>
+  <%= @user.email %>
+<p></p>
+Hosting Events:<br>
+<i>count</i> : <%= @user.hosting_events.count%><br>
+<% @user.hosting_events.each do |e| %>
+  <%= link_to "#{e.title}" , edit_event_path(e) %>
+  @ <%= e.location %><br>
+<% end %>
+<p></p>
+Attending Events:<br>
+<i>count</i> : <%= @user.events.count%><br>
+<% @user.events.each do |e| %>
+    <%= link_to "#{e.title}" , event_path(e) %>
+  @ <%= e.location %><br>
+<% end %>
+<p></p>
+
+
+<%= link_to 'Host An Event', new_event_path %>
+<br>
+<p></p>
+<%= link_to 'View Events to Attend', events_path %>
+
+<br>
+<p></p>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

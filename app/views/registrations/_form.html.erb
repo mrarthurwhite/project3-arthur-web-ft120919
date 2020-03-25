@@ -1,0 +1,47 @@
+<%= form_with(model: registration, local: true) do |form| %>
+  <% if registration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(registration.errors.count, "error") %> prohibited this registration from being saved:</h2>
+
+      <ul>
+        <% registration.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <strong>Title:</strong>
+    <%= @event.title %>
+    <br>
+    <strong>Hosted by:</strong>
+    <%= @event.host.name %>
+    <br>
+    <strong>Location:</strong>
+    <%= @event.location %>
+    <br>
+    <strong>Meeting datetime:</strong>
+    <%= @event.meeting_time %>
+    <br>
+    <strong>Description:</strong>
+    <%= @event.description %>
+  </p>
+  <div class="field">
+    <%= form.label :rsvp %>
+    <%= form.text_field :rsvp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_field :comment %>
+  </div>
+
+  <%= form.hidden_field :event_id , :value=> @event.id %>
+  <%= form.hidden_field :user_id , :value=> current_user.id %>
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
