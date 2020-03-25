@@ -22,8 +22,8 @@
         <% else %>        
           <%= link_to 'User Profile', user_path(current_user) ,  class:'waves-effect  blue lighten-3 btn-small' %>|
           <%= link_to "View All Events", events_path, class:'waves-effect  blue lighten-3 btn-small' %> |
-          <%= link_to "Log Out", logout_path, method: :post %>
-      <%end %>
+          <%= link_to "Log Out", logout_path, method: :post , class:'waves-effect  blue lighten-3 btn-small'%>
+      <%end %><br><br>
       </div>
       <span class="blue-text text-lighten-2">
       <%= "Enjoy #{current_user.email}" if logged_in? %><br>
