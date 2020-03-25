@@ -1,12 +1,18 @@
 class RegistrationsController < ApplicationController
   before_action :set_registration, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:new]
+
 
   # GET /registrations
   # GET /registrations.json
-  def index
+  def index    
+    if params[:event_id]
+    set_event
+    @registrations = @event.registrations
+  else
     @registrations = Registration.all
   end
-
+end
   # GET /registrations/1
   # GET /registrations/1.json
   def show
@@ -15,7 +21,6 @@ class RegistrationsController < ApplicationController
   # GET /registrations/new
   def new
     @registration = Registration.new
-    @event= Event.find_by(id: params[:id])
     #binding.pry
   end
 
@@ -58,7 +63,9 @@ class RegistrationsController < ApplicationController
     def set_registration
       @registration = Registration.find(params[:id])
     end
-
+    def set_event
+      @event= Event.find_by(id: params[:event_id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def registration_params
       params.require(:registration).permit(:rsvp, :comment, :user_id, :event_id)
