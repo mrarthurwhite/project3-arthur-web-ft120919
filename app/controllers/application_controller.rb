@@ -9,7 +9,9 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def login_required
-    # redirect unless logged in!
+  def authorize
+    if !User.isAdmin?(current_user)
+      redirect_to events_path
+    end
   end
 end
