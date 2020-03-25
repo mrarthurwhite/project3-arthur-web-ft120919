@@ -14,7 +14,6 @@
   <body>
   <div class="container">
     <div class="welcome">
-       <%= "Enjoy #{current_user.email}" if logged_in? %>
       <div class="nav" align="right">
         <% if !logged_in? %>
           <%= link_to "Log In", login_path %> |
@@ -24,6 +23,9 @@
           <%= link_to "Log Out", logout_path, method: :post %>
       <%end %>
       </div>
+      <span class="blue-text text-lighten-2">
+      <%= "Enjoy #{current_user.email}" if logged_in? %><br>
+      </span>
     </div>
 
     <%= yield %>
