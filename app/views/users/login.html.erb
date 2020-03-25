@@ -1,6 +1,6 @@
 
 <% if @user && @user.errors.any? %>
-  <h4 style="color: red;"><%= @user.errors.full_messages.to_sentence %></h4>
+  <h7 style="color: red;"><%= @user.errors.full_messages.to_sentence %></h7>
 <% end %>
 
 <%= form_tag signin_path, method: "post" do %>
