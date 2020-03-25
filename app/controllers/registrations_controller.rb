@@ -20,26 +20,6 @@ class RegistrationsController < ApplicationController
   end
 
 
-  def eventSignUpForm
-    #binding.pry
-    @event= Event.find_by(id: params[:id])
-  end
-
-  def eventSignUp
-    event= Event.find_by(id: params[:event_id])
-    r = Registration.new
-      r.rsvp = params[:rsvp]
-      r.comment = params[:comment]
-      r.user = current_user
-      r.event = event
-    #binding.pry
-    if r.save
-      events_path
-    else
-      rsvp_path(r.event)
-    end
-  end
-
   # GET /registrations/1/edit
   def edit
   end
