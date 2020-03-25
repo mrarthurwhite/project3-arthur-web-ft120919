@@ -9,16 +9,16 @@ class Event < ApplicationRecord
 
   def meeting_time
     # https://apidock.com/ruby/DateTime/strftime
-    self.meeting_datetime.strftime('%m/%d/%y at %l:%M  %p')
+    self.meeting_datetime.strftime('%m/%d/%y at %l:%M  %p') if self.meeting_datetime
   end
 
-  def isHost(user)
+  def isHost?(user)
     self.host==user
   end
 
 # has the user registered for the event
   def registered(user)
-    rsvped(user) || isHost(user)
+    self.rsvped?(user) || self.isHost?(user)
   end
 
   def rsvped?(user)
