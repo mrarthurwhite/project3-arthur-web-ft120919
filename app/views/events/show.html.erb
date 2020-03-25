@@ -1,29 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div  class="card-panel blue lighten-5">
   <strong>Title:</strong>
-  <%= @event.title %>
+  <p class="card-panel purple lighten-4">
+   <%= @event.title %>
 </p>
-<p>
   <strong>Hosted by:</strong>
+<p class="card-panel purple accent-1">
   <%= @event.host.name %>
 </p>
-<p>
   <strong>Location:</strong>
+  <p class="card-panel blue lighten-4">
   <%= @event.location %>
-</p>
-<p>
-  <strong>Meeting datetime:</strong>
-  <%= @event.meeting_time %>
-</p>
+  </p>
 
-<p>
-  <strong>Description:</strong>
+  <strong>Meeting date & time:</strong>
+<p class="card-panel blue lighten-3">
+ <%= @event.meeting_time %>
+</p>
+<strong>Description:</strong>
+<p class="card-panel blue lighten-2">
   <%= @event.description %>
 </p>
 
 
+</div>
 
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Edit', edit_event_path(@event) , class:'waves-effect  blue lighten-3 btn-small' %> |
+<%= link_to 'Back', events_path,  class:'waves-effect  blue lighten-3 btn-small' %>
