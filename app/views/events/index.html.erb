@@ -2,13 +2,14 @@
 
 <h1>Events</h1>
 
-<table>
+<table class="striped">
   <thead>
     <tr>
       <th>Status</th>
-      <th>Title</th>
-      <th>Location</th>
-      <th>Meeting time</th>
+      <th>Status</th>
+      <th><div  align="center">Title</div></th>
+      <th>Attendees</th>
+      <th><div  align="center">Meeting time</div></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -35,8 +36,8 @@
             <%= link_to 'Details', event %>
           <% end %>
         </td>
-        <td><%= link_to 'Edit', edit_event_path(event) if event.isHost(current_user) %></td>
-        <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' }   if event.isHost(current_user)  %></td>
+        <td><%= link_to 'Edit', edit_event_path(event)  , class:'waves-effect  blue lighten-3 btn-small' if event.isHost?(current_user)  %></td>
+        <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } , class:'waves-effect  blue lighten-3 btn-small'   if event.isHost?(current_user)   %></td>
       </tr>
     <% end %>
   </tbody>
@@ -44,4 +45,4 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+<%= link_to 'New Event', new_event_path , class:'waves-effect  blue lighten-3 btn-small'%>
