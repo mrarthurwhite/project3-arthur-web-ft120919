@@ -3,6 +3,9 @@ class Event < ApplicationRecord
   #has_many :participants, through: :registrations, source: :user, class_name: "User", foreign_key:"user_id"
   has_many :registrants, through: :registrations
   belongs_to :host, class_name: "User", foreign_key:"user_id"
+  validates :title, presence: true
+  validates :location, presence: true
+  validates :meeting_datetime , presence: true
 
   def meeting_time
     # https://apidock.com/ruby/DateTime/strftime
