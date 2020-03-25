@@ -1,7 +1,7 @@
 <%= form_with(model: registration, local: true) do |form| %>
   <% if registration.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(registration.errors.count, "error") %> prohibited this registration from being saved:</h2>
+    <div id="error_explanation" class="red-text text-darken-4">
+      <h7><%= pluralize(registration.errors.count, "error") %> prohibited this registration from being saved:</h7>
 
       <ul>
         <% registration.errors.full_messages.each do |message| %>
@@ -42,6 +42,6 @@
 
 
   <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.submit :class=>'waves-effect  blue lighten-3 btn-small'%>
+   </div>
 <% end %>
