@@ -2,27 +2,8 @@
 
 <h1>Registrations</h1>
 
-<table class="striped">
-  <thead>
-    <tr>
-      <th>Event</th>
-      <th>User</th>
-      <th>Rsvp</th>
-      <th>Comment</th>
-    </tr>
-  </thead>
+<%= render 'registrations', registrations: @registrations %>
 
-  <tbody>
-    <% @registrations.each do |registration| %>
-      <tr>
-        <td><%= registration.event.title %></td>
-        <td><%= registration.user.email %></td>
-        <td><%= registration.rsvp %></td>
-        <td><%= registration.comment %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
 <%= link_to 'Back', events_path ,  class:'waves-effect  blue lighten-3 btn-small' %>

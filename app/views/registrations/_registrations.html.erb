@@ -1,0 +1,22 @@
+
+<table class="striped">
+  <thead>
+  <tr>
+    <th>Event</th>
+    <th>User</th>
+    <th>Rsvp</th>
+    <th>Comment</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% registrations.each do |r| %>
+    <tr>
+      <td><%= r.event.title %></td>
+      <td><%= r.user.email %></td>
+      <td><%= r.rsvp %></td>
+      <td><%= r.comment %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
