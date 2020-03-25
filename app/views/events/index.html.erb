@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Status</th>
-      <th>Status</th>
       <th><div  align="center">Title</div></th>
       <th>Attendees</th>
       <th><div  align="center">Meeting time</div></th>
@@ -18,9 +17,16 @@
     <% @events.each do |event| %>
       <tr>
         <td>
-          <div align="left">
-          <%=  "RSVP: #{event.rsvp(current_user)}" if event.rsvped?(current_user) %>
-          <%=  "Host" if event.isHost(current_user)%>
+          <div align="left">            
+          <%if event.rsvped?(current_user) %>
+              <%= link_to "RSVP",
+                  edit_registration_path(
+                      event.registration(current_user)
+                  ), class:'waves-effect  blue lighten-3 btn-small' %> :  <%=event.rsvp(current_user)%>
+            <%else %>
+              <%= link_to 'RSVP', new_event_registration_path(event) , class:'waves-effect  blue lighten-3 btn-small' if !event.registered(current_user)%>
+              <% end %>
+          <%=  "Host" if event.isHost?(current_user)%>          
           </div>
         </td>
         <td><%= event.title %></td>
