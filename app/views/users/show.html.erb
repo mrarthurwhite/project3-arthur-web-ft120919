@@ -12,12 +12,16 @@ Hosting Events:<br>
   @ <%= e.location %><br>
 <% end %>
 <p></p>
-Attending Events:<br>
-<i>count</i> : <%= @user.events.count%><br>
-<% @user.events.each do |e| %>
-    <%= link_to "#{e.title}" , event_path(e) %>
-  @ <%= e.location %><br>
-<% end %>
+  <div  class="card-panel purple lighten-5">
+    <h6>Attending Events:</h6><br>
+    <i>count</i> : <%= @user.events.count%><br>
+    <ol>
+    <% @user.events.each do |e| %>
+        <li><%= link_to "#{e.title}" , event_path(e) %>
+      @ <%= e.location %></li>
+    <% end %>
+    </ol>
+  </div>
 <br><br><br>
 
 </div>
