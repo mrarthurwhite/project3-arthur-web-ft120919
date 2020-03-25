@@ -29,7 +29,9 @@
           <%=  "Host" if event.isHost?(current_user)%>          
           </div>
         </td>
-        <td><%= event.title %></td>
+        <td>
+          <%= link_to "#{event.title}", event %>
+        </td>
         <td><%= event.location %></td>
 
         <td><%= event.meeting_time %></td>
