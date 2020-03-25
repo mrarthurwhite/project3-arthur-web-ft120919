@@ -32,7 +32,11 @@
         <td>
           <%= link_to "#{event.title}", event %>
         </td>
-        <td><%= event.location %></td>
+               <td>
+          <div  align="center">
+            <%= link_to "#{event.registrants.count}",  event_registrations_path(event) %>
+          </div>
+        </td>
 
         <td><%= event.meeting_time %></td>
         <td>
