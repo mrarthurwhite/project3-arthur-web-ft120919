@@ -1,7 +1,7 @@
 <%= form_for @event do |form| %>
   <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+    <div id="error_explanation" class="red-text text-darken-4" >
+      <h7><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h7>
 
       <ul>
         <% @event.errors.full_messages.each do |message| %>
@@ -35,6 +35,6 @@
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit  :class=>'waves-effect  blue lighten-3 btn-small' %>
   </div>
 <% end %>
