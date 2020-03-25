@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :events
+  resources :events, only: [:index, :new, :create, :edit, :update, :delete]
   resources :users
-  resources :registrations, only: [:edit, :show, :update, :create]
+  resources :registrations, only: [:edit,  :update, :create, :show]
 
   # RSVP routes
   get "/events/:id/registration/new", to: "registrations#new", as: "new_registration"
