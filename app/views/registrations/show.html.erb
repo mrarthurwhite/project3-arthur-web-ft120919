@@ -12,12 +12,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @registration.user_id %>
+  <%= @registration.user.name %>
 </p>
 
 <p>
   <strong>Event:</strong>
-  <%= @registration.event_id %>
+  <%= @registration.event.title%>
 </p>
 
 <%= link_to 'Edit', edit_registration_path(@registration) %> |
