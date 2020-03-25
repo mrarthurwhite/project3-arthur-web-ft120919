@@ -27,8 +27,9 @@
       <%= "Enjoy #{current_user.email}" if logged_in? %><br>
       </span>
     </div>
-
+    <span class="blue-text text-darken-4">
     <%= yield %>
+    </span>
   </div>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
