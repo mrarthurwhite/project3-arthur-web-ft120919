@@ -2,10 +2,9 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :new, :create, :edit, :update, :delete]
   resources :users
   resources :registrations, only: [:edit,  :update, :create, :show]
-
-  # RSVP routes
-  get "/events/:id/registration/new", to: "registrations#new", as: "new_registration"
-  #post '/register', to: "registrations#eventSignUp", as: "eventSignUp"
+  resources :events, only: [:show] do
+    resources :registrations, only: [ :index, :new]
+  end
 
   # User Authentication and Authorization Routes
   get "/signup", to: "users#new"
