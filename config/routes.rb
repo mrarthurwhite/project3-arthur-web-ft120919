@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :events, only: [:show] do
     resources :registrations, only: [ :index, :new]
   end
+  get "/auth/google_oauth2/callback", to: "users#create_with_google_oauth"
 
   # User Authentication and Authorization Routes
   get "/signup", to: "users#new"
