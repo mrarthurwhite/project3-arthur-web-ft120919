@@ -34,6 +34,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def create_with_google_oauth
+    #binding.pry
+    omniauth_hash = request.env['omniauth.auth']
+    @user = User.find_or_create_by(email: omniauth_hash['info']['email']) do |u|
+      u.password = SecureRandom.hex
+      u.name = omniauth_hash['info']['name']
+    end
+    if @user.persisted?
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    else
+      render :new
+    end
+  end
 
   def logout
     #https://apidock.com/rails/ActionController/Base/reset_session
