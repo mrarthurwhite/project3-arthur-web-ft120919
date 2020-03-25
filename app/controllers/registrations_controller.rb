@@ -34,6 +34,7 @@ end
   def create
     #binding.pry
     @registration = Registration.new(registration_params)
+    @event = @registration.event
       if @registration.save
        render :show
       else
