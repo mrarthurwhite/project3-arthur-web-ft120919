@@ -4,14 +4,18 @@ Welcome,   <i><%= @user.name %></i>
 <br>
   <strong>Email:</strong>
   <%= @user.email %>
-<p></p>
-Hosting Events:<br>
-<i>count</i> : <%= @user.hosting_events.count%><br>
-<% @user.hosting_events.each do |e| %>
-  <%= link_to "#{e.title}" , edit_event_path(e) %>
-  @ <%= e.location %><br>
-<% end %>
-<p></p>
+<br><br><br>
+  <div  class="card-panel pink accent-1">
+    <h6>Hosting Events:</h6><br>
+    <i>count</i> : <%= @user.hosting_events.count%><br>
+    <ol>
+    <% @user.hosting_events.each do |e| %>
+        <li><%= link_to "#{e.title}" , edit_event_path(e)  %>
+      @ <%= e.location %></li>
+    <% end %>
+    </ol>
+  </div>
+<br><br><br>
   <div  class="card-panel purple lighten-5">
     <h6>Attending Events:</h6><br>
     <i>count</i> : <%= @user.events.count%><br>
