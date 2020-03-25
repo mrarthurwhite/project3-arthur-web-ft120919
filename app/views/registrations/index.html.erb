@@ -15,7 +15,7 @@
   <tbody>
     <% @registrations.each do |registration| %>
       <tr>
-         <td><%= registration.event.title %></td>
+        <td><%= registration.event.title %></td>
         <td><%= registration.user.email %></td>
         <td><%= registration.rsvp %></td>
         <td><%= registration.comment %></td>
@@ -25,5 +25,5 @@
 </table>
 
 <br>
-
 <%= link_to 'Back', events_path ,  class:'waves-effect  blue lighten-3 btn-small' %>
+

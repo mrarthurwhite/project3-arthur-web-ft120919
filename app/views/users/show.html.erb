@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
+
 <div  class="card-panel blue lighten-5">
-Welcome,   <i><%= @user.name %></i>
+
+  Welcome,   <i><%= @user.name %></i>
 <br>
   <strong>Email:</strong>
   <%= @user.email %>
@@ -32,7 +34,6 @@ Welcome,   <i><%= @user.name %></i>
 <%= link_to 'Host An Event', new_event_path,  class:'waves-effect  blue lighten-3 btn-small' %>
 |
 <%= link_to 'View Events to Attend', events_path,  class:'waves-effect  blue lighten-3 btn-small' %>
-
 
 <br>
 <br><br><br>

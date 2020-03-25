@@ -34,4 +34,5 @@ class Event < ApplicationRecord
     registration.rsvp if registration
   end
 
+
 end

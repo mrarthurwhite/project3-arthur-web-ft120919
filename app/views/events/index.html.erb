@@ -17,8 +17,8 @@
     <% @events.each do |event| %>
       <tr>
         <td>
-          <div align="left">            
-          <%if event.rsvped?(current_user) %>
+          <div align="left">
+            <%if event.rsvped?(current_user) %>
               <%= link_to "RSVP",
                   edit_registration_path(
                       event.registration(current_user)
@@ -26,18 +26,17 @@
             <%else %>
               <%= link_to 'RSVP', new_event_registration_path(event) , class:'waves-effect  blue lighten-3 btn-small' if !event.registered(current_user)%>
               <% end %>
-          <%=  "Host" if event.isHost?(current_user)%>          
+          <%=  "Host" if event.isHost?(current_user)%>
           </div>
         </td>
         <td>
           <%= link_to "#{event.title}", event %>
         </td>
-               <td>
+        <td>
           <div  align="center">
             <%= link_to "#{event.registrants.count}",  event_registrations_path(event) %>
           </div>
         </td>
-
         <td><%= event.meeting_time %></td>
         <td>
 
