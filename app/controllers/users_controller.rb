@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :isAdmin?, only: [:index, :edit, :delete]
+  before_action :isAdmin?, only: [:index, :edit, :destroy]
+  before_action :isThisMyRecord?, only:[:show]
   # GET /users
   # GET /users.json
   def index
@@ -86,6 +87,15 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+  #
+  def isThisMyRecord?
+    # edit if it is your own registration
+    if !(@user==current_user)
+      error= "#{current_user.email} is not authorized to view profile of #{@user.email}"
+      redirect_to user_path(current_user), alert:error
+    end
+  end
+  #
     def set_user
       @user = User.find(params[:id])
     end

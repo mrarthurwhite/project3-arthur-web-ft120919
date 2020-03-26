@@ -1,8 +1,8 @@
 class RegistrationsController < ApplicationController
   before_action :set_registration, only: [:show, :edit, :update, :destroy]
   before_action :set_event, only: [:new]
-  before_action :isAdmin?, only: [ :delete]
-
+  before_action :isAdmin?, only: [ :destroy]
+  before_action :isThisMyRecord? , only: [:edit, :update]
   # GET /registrations
   # GET /registrations.json
   def index
@@ -61,15 +61,13 @@ class RegistrationsController < ApplicationController
   end
 
   private
-=begin
-  def theseAreMyRecords?
-    if self.user
-      self.user==current_user
-    else
-      self==current_user
+  def isThisMyRecord?
+    # edit if it is your own registration
+    if !(@registration.user==current_user)
+      error= "#{current_user.email} is not authorized to modify registration of #{@registration.user.email}"
+      redirect_to user_path(current_user), alert:error
     end
   end
-=end
 
   # Use callbacks to share common setup or constraints between actions.
   #

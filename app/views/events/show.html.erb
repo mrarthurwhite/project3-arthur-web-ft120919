@@ -1,7 +1,5 @@
-<p id="notice"><%= notice %></p>
 
 <%= render 'event', event: @event %>
-
 
 <div  class="card-panel blue lighten-5">
   <strong>RSVPs:</strong>
@@ -9,5 +7,5 @@
       <%= render 'registrations/registration', r: registration %>
     <%end %>
 </div>
-<%= link_to 'Edit Event', edit_event_path(@event) , class:'waves-effect  blue lighten-3 btn-small' %> |
+<%= link_to 'Edit Event', edit_event_path(@event) , class:'waves-effect  blue lighten-3 btn-small' if @event.isHost?(current_user) %> |
 <%= link_to 'Back', events_path,  class:'waves-effect  blue lighten-3 btn-small' %>

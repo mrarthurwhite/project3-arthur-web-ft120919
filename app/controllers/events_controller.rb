@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+  before_action :must_be_host_to_edit , only:[:edit, :update, :destroy]
   # GET /events
   # GET /events.json
   def index
@@ -20,6 +20,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+
   end
 
   # POST /events
@@ -54,6 +55,13 @@ class EventsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
+  def must_be_host_to_edit
+    if !@event.isHost?(current_user)
+      error= "You are not a host of event titled : #{@event.title}"
+      redirect_to user_path(current_user), alert:error
+    end
+  end
 
     def set_event
       @event = Event.find(params[:id])
