@@ -1,7 +1,7 @@
 class RegistrationsController < ApplicationController
   before_action :set_registration, only: [:show, :edit, :update, :destroy]
   before_action :set_event, only: [:new]
-  before_action :authorize, only: [:index, :delete]
+  before_action :isAdmin?, only: [ :delete]
 
   # GET /registrations
   # GET /registrations.json
@@ -61,7 +61,18 @@ class RegistrationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+=begin
+  def theseAreMyRecords?
+    if self.user
+      self.user==current_user
+    else
+      self==current_user
+    end
+  end
+=end
+
+  # Use callbacks to share common setup or constraints between actions.
+  #
     def set_registration
       @registration = Registration.find(params[:id])
     end

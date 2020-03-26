@@ -1,24 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Rsvp:</strong>
-  <%= @registration.rsvp %>
-</p>
+<%= render 'registration', r: @registration %>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @registration.comment %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @registration.user.name %>
-</p>
-
-<p>
-  <strong>Event:</strong>
-  <%= @registration.event.title%>
-</p>
 
 <%= link_to 'Edit', edit_registration_path(@registration) ,  class:'waves-effect  blue lighten-3 btn-small'%> |
-<%= link_to 'Back', registrations_path ,  class:'waves-effect  blue lighten-3 btn-small' %>
+<%= link_to 'Back', events_path ,  class:'waves-effect  blue lighten-3 btn-small' %>

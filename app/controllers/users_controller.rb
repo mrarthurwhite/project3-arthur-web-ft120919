@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, only: [:index, :edit, :delete]
+  before_action :isAdmin?, only: [:index, :edit, :delete]
   # GET /users
   # GET /users.json
   def index
@@ -90,13 +90,6 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-=begin
-  def authorize
-    if !User.isAdmin?(current_user)
-      redirect_to events_path
-    end
-  end
-=end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params

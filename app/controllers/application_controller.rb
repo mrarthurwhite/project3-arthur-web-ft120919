@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :logged_in?, :current_user, :login_required
+  helper_method :logged_in?, :current_user, :isAdmin?, :theseAreMyRecords?
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def authorize
+
+  def isAdmin?
     if !User.isAdmin?(current_user)
       redirect_to events_path
     end

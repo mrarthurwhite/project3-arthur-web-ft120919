@@ -5,8 +5,9 @@
 
 <div  class="card-panel blue lighten-5">
   <strong>RSVPs:</strong>
-
-<%= render 'registrations/registrations', registrations: @event.registrations %>
+  <% @event.registrations.each do |registration| %>
+      <%= render 'registrations/registration', r: registration %>
+    <%end %>
 </div>
 <%= link_to 'Edit Event', edit_event_path(@event) , class:'waves-effect  blue lighten-3 btn-small' %> |
 <%= link_to 'Back', events_path,  class:'waves-effect  blue lighten-3 btn-small' %>

@@ -10,22 +10,10 @@
       </ul>
     </div>
   <% end %>
-  <p>
-    <strong>Title:</strong>
-    <%= @event.title %>
-    <br>
-    <strong>Hosted by:</strong>
-    <%= @event.host.name %>
-    <br>
-    <strong>Location:</strong>
-    <%= @event.location %>
-    <br>
-    <strong>Meeting datetime:</strong>
-    <%= @event.meeting_time %>
-    <br>
-    <strong>Description:</strong>
-    <%= @event.description %>
-  </p>
+
+  <%= render 'events/event', event: @event %>
+
+
   <div class="field">
     <%= form.label :rsvp %>
     <%= form.text_field :rsvp %>
