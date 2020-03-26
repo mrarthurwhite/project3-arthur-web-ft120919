@@ -59,5 +59,7 @@ Specs:
 Confirm:
 - [x] The application is pretty DRY
 - [x] Limited logic in controllers
-- [~] Views use helper methods if appropriate
+- [x] Views use helper methods if appropriate
+ 
+        (used meeting time from model to event_helper)
 - [x]  Views use partials if appropriate

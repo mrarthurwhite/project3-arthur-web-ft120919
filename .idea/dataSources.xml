@@ -7,5 +7,11 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\Numa\dev\flatiron\labs\proj3-arthur-events-ror-web-ft-120919\db\development.sqlite3</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="development [2]" uuid="3a669b0f-da71-4d9f-84b6-4f21127662fa">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\Numa\dev\flatiron\labs\project3-arthur-events-ror-web-ft-120919\db\development.sqlite3</jdbc-url>
+    </data-source>
   </component>
 </project>

@@ -7,10 +7,6 @@ class Event < ApplicationRecord
   validates :location, presence: true
   validates :meeting_datetime , presence: true
 
-  def meeting_time
-    # https://apidock.com/ruby/DateTime/strftime
-    self.meeting_datetime.strftime('%m/%d/%y at %l:%M  %p') if self.meeting_datetime
-  end
 
   def isHost?(user)
     self.host==user
