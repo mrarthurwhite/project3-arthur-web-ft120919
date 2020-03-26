@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   get "/login", to: "users#login"
   post '/login', to: "users#signin", as: "signin"
   post '/logout', to: "users#logout", as: "logout"
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.htm
+  # This is the root route
   root 'welcomes#index'
 end
