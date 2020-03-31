@@ -44,7 +44,8 @@ Specs:
 
 - [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
             scope :affirmed,               -> { where(rsvp: "Yes") }
-
+            scope :past_events , -> { where("meeting_datetime < ?", Time.zone.now) }
+            scope :upcoming_events , -> { where("meeting_datetime > ?", Time.zone.now) }
 - [x] Include signup (how e.g. Devise)
 - [x] Include login (how e.g. Devise)
 - [x] Include logout (how e.g. Devise)
@@ -62,3 +63,11 @@ Confirm:
  
         (used meeting time from model to event_helper)
 - [x]  Views use partials if appropriate
+
+[x] Create a new repository on GitHub for your Rails application.
+    https://github.com/mrarthurwhite/project3-arthur-web-ft120919/
+
+[x] Submit a video of how a user would interact with your working web application.
+    https://youtu.be/JMSiyHIO83s
+[x] Write a blog post about the project and process.
+    https://mrarthurwhite.github.io/events_meetup_project_3_for_ror
