@@ -43,11 +43,8 @@ Specs:
         
 
 - [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+            scope :affirmed,               -> { where(rsvp: "Yes") }
 
-          In event.rb
-          def registration(user)
-            self.registrations.find_by(user_id: user.id)
-          end
 - [x] Include signup (how e.g. Devise)
 - [x] Include login (how e.g. Devise)
 - [x] Include logout (how e.g. Devise)

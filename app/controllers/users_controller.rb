@@ -62,7 +62,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
       if @user.save
-        render :show
+        redirect_to user_path(@user)
       else
         render :new
       end
@@ -72,7 +72,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
       if @user.update(user_params)
-        render :show
+        redirect_to user_path(@user)
       else
         render :edit
       end
@@ -91,13 +91,13 @@ class UsersController < ApplicationController
   def isThisMyRecord?
     # edit if it is your own registration
     if !(@user==current_user)
-      error= "#{current_user.email} is not authorized to view profile of #{@user.email}"
+      error= "#{current_user.email} is not authorized to view the profile of another user."
       redirect_to user_path(current_user), alert:error
     end
   end
   #
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find_by(id: params[:id])
     end
 
 

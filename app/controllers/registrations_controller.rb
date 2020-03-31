@@ -37,7 +37,7 @@ class RegistrationsController < ApplicationController
     @registration = Registration.new(registration_params)
     @event = @registration.event
       if @registration.save
-       render :show
+        redirect_to registration_path(@registration)
       else
         render :new
       end
@@ -72,7 +72,7 @@ class RegistrationsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   #
     def set_registration
-      @registration = Registration.find(params[:id])
+      @registration = Registration.find_by(id: params[:id])
     end
   def set_event
     @event= Event.find_by(id: params[:event_id])

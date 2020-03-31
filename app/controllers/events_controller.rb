@@ -29,7 +29,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.host = current_user
       if @event.save
-        render :show
+        redirect_to event_path(@event)
       else
         render :new
       end
@@ -40,7 +40,7 @@ class EventsController < ApplicationController
   def update
 
       if @event.update(event_params)
-        render :show
+        redirect_to event_path(@event)
       else
         render :edit
       end
@@ -64,7 +64,7 @@ class EventsController < ApplicationController
   end
 
     def set_event
-      @event = Event.find(params[:id])
+      @event = Event.find_by(id: params[:id])
     end
 
 

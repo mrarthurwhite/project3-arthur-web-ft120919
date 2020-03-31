@@ -30,5 +30,14 @@ class Event < ApplicationRecord
     registration.rsvp if registration
   end
 
+  def upcoming_event?
+    (self.meeting_datetime > Time.zone.now)
+  end
+
+
+  scope :past_events , -> { where("meeting_datetime < ?", Time.zone.now) }
+  scope :upcoming_events , -> { where("meeting_datetime > ?", Time.zone.now) }
+
+
 
 end

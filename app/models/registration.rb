@@ -5,6 +5,7 @@ class Registration < ApplicationRecord
   validates :rsvp, presence: true, inclusion: { in: %w(Yes No Maybe)}
 
 
+  scope :affirmed,               -> { where(rsvp: "Yes") }
 
 
 end
